@@ -1,6 +1,7 @@
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js');
+  console.log("register service worker");
 }
 
 document.querySelector('#show').addEventListener('click', () => {
