@@ -58,9 +58,11 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
         if (cachedResponse) {
+          console.log("cache hit in service worker!");
           return cachedResponse;
         }
-
+        
+        console.log("cache miss in service worker!");
         return caches.open(RUNTIME).then(cache => {
           return fetch(event.request).then(response => {
             // Put a copy of the response in the runtime cache.
