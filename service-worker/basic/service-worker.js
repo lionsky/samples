@@ -26,8 +26,10 @@ const PRECACHE_URLS = [
   'demo.js'
 ];
 
+console.log("In service worker!");
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
+  console.log("Install service worker!");
   event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll(PRECACHE_URLS))
